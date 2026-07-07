@@ -1,0 +1,7 @@
+[workspace]
+resolver = "3"
+members = ["apps/ferride/src-tauri"]
+
+[workspace.package]
+authors = ["thatmisakidev@outlook.com"]
+edition = "2021"

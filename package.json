@@ -1,0 +1,17 @@
+{
+  "name": "ferride",
+  "private": true,
+  "version": "0.1.0",
+  "scripts": {
+    "dev": "pnpm --filter @ferride/ferride dev",
+    "build": "pnpm --filter @ferride/ferride build",
+    "preview": "pnpm --filter @ferride/ferride preview",
+    "tauri": "pnpm --filter @ferride/ferride tauri"
+  },
+  "devEngines": {
+    "packageManager": {
+      "name": "pnpm",
+      "version": "^11.0.0"
+    }
+  }
+}
