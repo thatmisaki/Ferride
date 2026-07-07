@@ -1,6 +1,6 @@
 # Ferride
 
-> ![WARNING]
+> [!WARNING]
 >
 > Ferride is currently an in-progress work.
 
