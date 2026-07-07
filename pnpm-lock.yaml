@@ -254,6 +254,9 @@ importers:
         specifier: catalog:react
         version: 19.2.7(react@19.2.7)
     devDependencies:
+      '@ferride/tsconfig':
+        specifier: workspace:*
+        version: link:../../packages/tsconfig
       '@tauri-apps/cli':
         specifier: catalog:tauri
         version: 2.11.4
@@ -272,6 +275,8 @@ importers:
       vite:
         specifier: 'catalog:'
         version: 7.3.6
+
+  packages/tsconfig: {}
 
 packages:
 

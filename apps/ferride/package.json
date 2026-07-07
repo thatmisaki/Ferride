@@ -21,6 +21,7 @@
     "@vitejs/plugin-react": "^4.6.0",
     "typescript": "catalog:",
     "vite": "catalog:",
-    "@tauri-apps/cli": "catalog:tauri"
+    "@tauri-apps/cli": "catalog:tauri",
+    "@ferride/tsconfig": "workspace:*"
   }
 }

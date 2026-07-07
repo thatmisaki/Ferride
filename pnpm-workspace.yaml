@@ -3,6 +3,7 @@ allowBuilds:
 
 packages:
   - "apps/ferride"
+  - "packages/tsconfig"
 
 catalog:
   typescript: ~5.8.3
