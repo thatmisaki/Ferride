@@ -1,3 +1,5 @@
 import type { KnipConfig } from "knip";
 
-export default {} satisfies KnipConfig;
+export default {
+  ignoreDependencies: ["tailwindcss"],
+} satisfies KnipConfig;
