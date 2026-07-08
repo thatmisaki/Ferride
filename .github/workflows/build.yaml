@@ -1,0 +1,106 @@
+name: Build
+
+on:
+  # push:
+  #   branches: [main]
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ${{ matrix.platform }}
+
+    strategy:
+      fail-fast: false
+
+      matrix:
+        include:
+          - name: linux
+            platform: ubuntu-24.04
+
+          - name: win64
+            platform: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v7
+
+      - name: Install PNPM
+        uses: pnpm/action-setup@v6
+
+      - name: Install Node
+        uses: actions/setup-node@v6
+
+      - name: Install Rust Toolchain [Linux]
+        uses: dtolnay/rust-toolchain@stable
+        if: matrix.name == 'linux'
+
+      - name: Install Rust Toolchain [Win64]
+        uses: dtolnay/rust-toolchain@stable
+        if: matrix.name == 'win64'
+        with:
+          targets: x86_64-pc-windows-msvc
+
+      - name: Install Web Dependencies
+        run: |
+          pnpm ci
+
+      - name: Install Tauri Dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+          libwebkit2gtk-4.1-0=2.44.0-2 \
+          libwebkit2gtk-4.1-dev=2.44.0-2 \
+          libjavascriptcoregtk-4.1-0=2.44.0-2 \
+          libjavascriptcoregtk-4.1-dev=2.44.0-2 \
+          gir1.2-javascriptcoregtk-4.1=2.44.0-2 \
+          gir1.2-webkit2-4.1=2.44.0-2 \
+          libappindicator3-dev \
+          librsvg2-dev \
+          patchelf \
+          xdg-utils
+
+      - name: Install Tauri Dependencies [Win64]
+        if: matrix.name == 'win64'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+          clang \
+          nsis \
+          llvm \
+          lld
+          cargo install --locked cargo-xwin
+
+      - name: Build Tauri App [Linux]
+        uses: tauri-apps/tauri-action@v0
+        if: matrix.name == 'linux'
+        with:
+          projectPath: ./apps/ferride/src-tauri
+
+      - name: Build Tauri App [Win64]
+        uses: tauri-apps/tauri-action@v0
+        if: matrix.name == 'win64'
+        with:
+          projectPath: ./apps/ferride/src-tauri
+          args: --runner cargo-xwin --target x86_64-pc-windows-msvc
+
+      - name: Move Build Artifacts [Linux]
+        if: matrix.name == 'linux'
+        run: |
+          mkdir -p ./build
+          mv ./target/release/bundle/appimage/*.AppImage ./build
+          mv ./target/release/bundle/deb/*.deb ./build
+          mv ./target/release/bundle/rpm/*.rpm ./build
+
+      - name: Move Build Artifacts [Win64]
+        if: matrix.name == 'win64'
+        run: |
+          mkdir -p ./build
+          mv ./target/x86_64-pc-windows-msvc/release/bundle/nsis/*.exe ./build
+          mv ./target/x86_64-pc-windows-msvc/release/*.exe ./build
+
+      - name: Upload Build Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: tauri-artifacts-${{ matrix.name }}
+          path: ./build

@@ -25,3 +25,6 @@ dist-ssr
 
 # Cargo builds
 target
+
+# Local workflow artifacts
+.artifacts
