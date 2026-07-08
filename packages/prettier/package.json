@@ -1,0 +1,8 @@
+{
+  "name": "@ferride/prettier",
+  "private": true,
+  "type": "module",
+  "devDependencies": {
+    "prettier": "catalog:"
+  }
+}

@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
+    "format": "prettier --write .",
     "lint": "eslint .",
     "preview": "vite preview",
     "tauri": "tauri"
@@ -18,12 +19,14 @@
   },
   "devDependencies": {
     "@ferride/eslint": "workspace:*",
+    "@ferride/prettier": "workspace:*",
     "@ferride/tsconfig": "workspace:*",
     "@tauri-apps/cli": "catalog:tauri",
     "@types/react": "catalog:react",
     "@types/react-dom": "catalog:react",
     "@vitejs/plugin-react": "^4.6.0",
     "eslint": "catalog:",
+    "prettier": "catalog:",
     "typescript": "catalog:",
     "vite": "catalog:"
   }
