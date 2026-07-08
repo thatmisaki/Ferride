@@ -4,11 +4,13 @@ allowBuilds:
 packages:
   - "apps/ferride"
   - "packages/eslint"
+  - "packages/knip"
   - "packages/prettier"
   - "packages/tsconfig"
 
 catalog:
   eslint: ^10.6.0
+  knip: ^6.24.0
   prettier: ^3.9.4
   typescript: ~5.8.3
   vite: ^7.0.4

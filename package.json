@@ -5,6 +5,9 @@
   "scripts": {
     "dev": "pnpm --filter @ferride/ferride dev",
     "build": "pnpm --filter @ferride/ferride build",
+    "check:unused": "pnpm -r check:unused",
+    "format": "pnpm -r format",
+    "lint": "pnpm -r lint",
     "preview": "pnpm --filter @ferride/ferride preview",
     "tauri": "pnpm --filter @ferride/ferride tauri"
   },

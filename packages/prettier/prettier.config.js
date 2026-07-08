@@ -1,8 +1,6 @@
 /** @type {import('prettier').Config} */
-const config = {
+export default {
   semi: true,
   tabWidth: 2,
   singleQuote: false,
 };
-
-export default config;
