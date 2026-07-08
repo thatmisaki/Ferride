@@ -1,8 +1,0 @@
-{
-  "name": "@ferride/knip",
-  "private": true,
-  "type": "module",
-  "devDependencies": {
-    "knip": "catalog:"
-  }
-}

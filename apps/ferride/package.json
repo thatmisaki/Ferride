@@ -6,8 +6,6 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "check:unused": "knip",
-    "format": "prettier --write .",
     "lint": "eslint .",
     "preview": "vite preview",
     "tauri": "tauri"
@@ -19,8 +17,6 @@
   },
   "devDependencies": {
     "@ferride/eslint": "workspace:*",
-    "@ferride/knip": "workspace:*",
-    "@ferride/prettier": "workspace:*",
     "@ferride/tailwindcss": "workspace:*",
     "@ferride/tsconfig": "workspace:*",
     "@tailwindcss/vite": "catalog:tailwindcss",
@@ -29,8 +25,6 @@
     "@types/react-dom": "catalog:react",
     "@vitejs/plugin-react": "^4.6.0",
     "eslint": "catalog:",
-    "knip": "catalog:",
-    "prettier": "catalog:",
     "typescript": "catalog:",
     "vite": "catalog:"
   }

@@ -1,9 +1,9 @@
-import baseConfig from "@ferride/eslint/eslint.config.js";
+import baseConfig from "@ferride/eslint";
 
 /** @type {import("eslint").Linter.Config} */
 export default [
   {
-    ignores: ["vite.config.ts", "knip.config.ts"],
+    ignores: ["vite.config.ts"],
   },
   // Import global configurations
   ...baseConfig,

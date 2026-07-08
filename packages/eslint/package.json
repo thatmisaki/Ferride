@@ -2,6 +2,9 @@
   "name": "@ferride/eslint",
   "private": true,
   "type": "module",
+  "exports": {
+    ".": "./base.config.js"
+  },
   "devDependencies": {
     "eslint": "catalog:",
     "eslint-plugin-react-dom": "^5.11.2",

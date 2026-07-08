@@ -2,14 +2,19 @@
   "name": "ferride",
   "private": true,
   "version": "0.1.0",
+  "type": "module",
   "scripts": {
     "dev": "pnpm --filter @ferride/ferride dev",
     "build": "pnpm --filter @ferride/ferride build",
-    "check:unused": "pnpm -r check:unused",
-    "format": "pnpm -r format",
+    "check:unused": "knip",
+    "format": "prettier --write .",
     "lint": "pnpm -r lint",
     "preview": "pnpm --filter @ferride/ferride preview",
     "tauri": "pnpm --filter @ferride/ferride tauri"
+  },
+  "devDependencies": {
+    "knip": "catalog:",
+    "prettier": "catalog:"
   },
   "devEngines": {
     "packageManager": {

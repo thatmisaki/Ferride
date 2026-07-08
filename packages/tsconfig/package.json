@@ -1,4 +1,7 @@
 {
   "name": "@ferride/tsconfig",
-  "private": true
+  "private": true,
+  "exports": {
+    ".": "./tsconfig.json"
+  }
 }

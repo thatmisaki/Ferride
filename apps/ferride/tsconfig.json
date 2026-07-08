@@ -1,5 +1,5 @@
 {
-  "extends": "@ferride/tsconfig/tsconfig.json",
+  "extends": "@ferride/tsconfig",
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

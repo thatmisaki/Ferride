@@ -7,8 +7,6 @@ packages:
 
   # Internal configuration packages
   - "packages/eslint"
-  - "packages/knip"
-  - "packages/prettier"
   - "packages/tailwindcss"
   - "packages/tsconfig"
 
@@ -30,5 +28,4 @@ catalogs:
     tailwindcss: ^4.3.2
   tauri:
     "@tauri-apps/api": ^2
-    "@tauri-apps/plugin-opener": ^2
     "@tauri-apps/cli": "^2"
