@@ -1,0 +1,11 @@
+{
+  "name": "@ferride/tailwindcss",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./tailwind.css"
+  },
+  "devDependencies": {
+    "tailwindcss": "catalog:tailwindcss"
+  }
+}
