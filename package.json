@@ -8,6 +8,7 @@
     "build": "pnpm --filter @ferride/ferride build",
     "check:unused": "knip",
     "format": "prettier --write .",
+    "format:check": "prettier --check .",
     "lint": "pnpm -r lint",
     "preview": "pnpm --filter @ferride/ferride preview",
     "tauri": "pnpm --filter @ferride/ferride tauri"
