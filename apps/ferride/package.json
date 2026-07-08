@@ -6,22 +6,25 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
+    "lint": "eslint .",
     "preview": "vite preview",
     "tauri": "tauri"
   },
   "dependencies": {
-    "react": "catalog:react",
-    "react-dom": "catalog:react",
     "@tauri-apps/api": "catalog:tauri",
-    "@tauri-apps/plugin-opener": "catalog:tauri"
+    "@tauri-apps/plugin-opener": "catalog:tauri",
+    "react": "catalog:react",
+    "react-dom": "catalog:react"
   },
   "devDependencies": {
+    "@ferride/eslint": "workspace:*",
+    "@ferride/tsconfig": "workspace:*",
+    "@tauri-apps/cli": "catalog:tauri",
     "@types/react": "catalog:react",
     "@types/react-dom": "catalog:react",
     "@vitejs/plugin-react": "^4.6.0",
+    "eslint": "catalog:",
     "typescript": "catalog:",
-    "vite": "catalog:",
-    "@tauri-apps/cli": "catalog:tauri",
-    "@ferride/tsconfig": "workspace:*"
+    "vite": "catalog:"
   }
 }

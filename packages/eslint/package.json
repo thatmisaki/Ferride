@@ -1,0 +1,14 @@
+{
+  "name": "@ferride/eslint",
+  "private": true,
+  "type": "module",
+  "devDependencies": {
+    "eslint": "catalog:",
+    "eslint-plugin-react-dom": "^5.11.2",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "eslint-plugin-react-refresh": "^0.5.3",
+    "eslint-plugin-react-x": "^5.11.2",
+    "globals": "^17.7.0",
+    "typescript-eslint": "^8.63.0"
+  }
+}
