@@ -13,8 +13,11 @@
     "tauri": "pnpm --filter @ferride/ferride tauri"
   },
   "devDependencies": {
-    "knip": "catalog:",
-    "prettier": "catalog:"
+    "knip": "^6.24.0",
+    "prettier": "^3.9.4",
+    "prettier-plugin-classnames": "^0.10.4",
+    "prettier-plugin-merge": "^0.10.1",
+    "prettier-plugin-tailwindcss": "^0.8.0"
   },
   "devEngines": {
     "packageManager": {
