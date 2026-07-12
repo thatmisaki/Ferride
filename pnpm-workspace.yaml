@@ -5,6 +5,9 @@ packages:
   # Applications
   - "apps/ferride"
 
+  # Internal packages
+  - "packages/ferride-core"
+
   # Internal configuration packages
   - "packages/eslint"
   - "packages/tailwindcss"

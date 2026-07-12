@@ -1,0 +1,15 @@
+{
+  "name": "@ferride/ferride-core",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "wasm-pack build --target web --out-name index --out-dir dist"
+  },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist/index_bg.wasm",
+    "dist/index.js",
+    "dist/index.d.ts"
+  ]
+}

@@ -11,6 +11,7 @@
     "tauri": "tauri"
   },
   "dependencies": {
+    "@ferride/ferride-core": "workspace:*",
     "@tauri-apps/api": "catalog:tauri",
     "react": "catalog:react",
     "react-dom": "catalog:react"

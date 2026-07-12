@@ -1,7 +1,13 @@
 [workspace]
 resolver = "3"
-members = ["apps/ferride/src-tauri"]
+members = ["apps/ferride/src-tauri", "packages/ferride-core"]
 
 [workspace.package]
 authors = ["thatmisakidev@outlook.com"]
 edition = "2021"
+
+[workspace.dependencies]
+# Internal packages
+ferride-core = { path = "packages/ferride-core" }
+# External packages
+wasm-bindgen = "0.2.126"
