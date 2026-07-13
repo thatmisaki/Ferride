@@ -25,6 +25,16 @@ export default defineConfig([
       // Enable lint rules for React DOM
       reactDom.configs.recommended,
     ],
+    rules: {
+      "@typescript-eslint/no-unused-vars": [
+        "error",
+        {
+          varsIgnorePattern: "^_",
+          argsIgnorePattern: "^_",
+          caughtErrorsIgnorePattern: "^_",
+        },
+      ],
+    },
     languageOptions: {
       globals: globals.browser,
     },
