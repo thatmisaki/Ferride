@@ -1,15 +1,31 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import reactLogo from "./assets/react.svg";
-import { invoke } from "@tauri-apps/api/core";
 import "./App.css";
 
-function App() {
+export default function App() {
   const [greetMsg, setGreetMsg] = useState("");
   const [name, setName] = useState("");
 
-  async function greet() {
+  // Emulation server worker thread stub.
+  const worker = useRef<Worker>(null);
+
+  useEffect(() => {
+    // Initialise the emulation server worker thread.
+    worker.current = new Worker(new URL("server-worker.ts", import.meta.url));
+    // Receive responses and update UI accordingly.
+    worker.current.onmessage = (event: MessageEvent<string>) => {
+      setGreetMsg(event.data);
+    };
+    // Clean up by terminating worker thread.
+    return () => worker.current?.terminate();
+  }, []);
+
+  function greet() {
     // Learn more about Tauri commands at https://tauri.app/develop/calling-rust/
-    setGreetMsg(await invoke("greet", { name }));
+    // setGreetMsg(await invoke("greet", { name }));
+
+    // Initialise asynchronous emulation server request.
+    worker.current?.postMessage(name);
   }
 
   return (
@@ -33,7 +49,7 @@ function App() {
         className="row"
         onSubmit={(e) => {
           e.preventDefault();
-          void greet();
+          greet();
         }}
       >
         <input
@@ -49,5 +65,3 @@ function App() {
     </main>
   );
 }
-
-export default App;
