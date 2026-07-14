@@ -24,7 +24,10 @@ dist-ssr
 *.sw?
 
 # Cargo builds
-target
+**/target
+
+# Tauri artifacts
+**/gen/schemas
 
 # Local workflow artifacts
 .artifacts
