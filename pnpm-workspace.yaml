@@ -6,7 +6,8 @@ packages:
   - "apps/ferride"
 
   # Internal packages
-  - "packages/ferride-core"
+  - "packages/ferride-bind"
+  - "packages/ferride-wasm"
 
   # Internal configuration packages
   - "packages/eslint"

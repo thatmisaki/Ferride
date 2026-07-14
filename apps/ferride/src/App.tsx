@@ -1,5 +1,7 @@
+import Server from "@ferride/ferride-bind";
 import { useEffect, useRef, useState } from "react";
 import reactLogo from "./assets/react.svg";
+
 import "./App.css";
 
 export default function App() {
@@ -7,25 +9,24 @@ export default function App() {
   const [name, setName] = useState("");
 
   // Emulation server worker thread stub.
-  const worker = useRef<Worker>(null);
+  const server = useRef<Server>(null);
 
   useEffect(() => {
     // Initialise the emulation server worker thread.
-    worker.current = new Worker(new URL("server-worker.ts", import.meta.url));
-    // Receive responses and update UI accordingly.
-    worker.current.onmessage = (event: MessageEvent<string>) => {
-      setGreetMsg(event.data);
-    };
+    server.current = new Server();
     // Clean up by terminating worker thread.
-    return () => worker.current?.terminate();
+    return () => server.current?.dispose();
   }, []);
 
-  function greet() {
+  async function greet() {
     // Learn more about Tauri commands at https://tauri.app/develop/calling-rust/
     // setGreetMsg(await invoke("greet", { name }));
 
-    // Initialise asynchronous emulation server request.
-    worker.current?.postMessage(name);
+    if (server.current === null) {
+      return;
+    }
+    // Make asynchronous emulation server request.
+    setGreetMsg(await server.current.greet(name));
   }
 
   return (
@@ -49,7 +50,7 @@ export default function App() {
         className="row"
         onSubmit={(e) => {
           e.preventDefault();
-          greet();
+          void greet();
         }}
       >
         <input

@@ -948,7 +948,6 @@ dependencies = [
 name = "ferride"
 version = "0.1.0"
 dependencies = [
- "ferride-core",
  "serde",
  "serde_json",
  "tauri",
@@ -957,7 +956,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "ferride-core"
+name = "ferride-wasm"
 version = "0.1.0"
 dependencies = [
  "wasm-bindgen",

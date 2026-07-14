@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "pnpm --filter @ferride/ferride dev",
     "build": "pnpm --filter @ferride/ferride build",
-    "build:wasm": "pnpm --filter @ferride/ferride-core build",
+    "build:wasm": "pnpm --filter @ferride/ferride-wasm build",
     "check:unused": "knip",
     "format": "prettier --write .",
     "format:check": "prettier --check .",

@@ -1,5 +1,5 @@
 [package]
-name = "ferride-core"
+name = "ferride-wasm"
 version = "0.1.0"
 publish = false
 authors.workspace = true

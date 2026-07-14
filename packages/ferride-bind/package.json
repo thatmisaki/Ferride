@@ -1,0 +1,11 @@
+{
+  "name": "@ferride/ferride-bind",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "dependencies": {
+    "@ferride/ferride-wasm": "workspace:*"
+  }
+}
