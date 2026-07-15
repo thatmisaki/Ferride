@@ -5,7 +5,16 @@
   "exports": {
     ".": "./src/index.ts"
   },
+  "scripts": {
+    "lint": "eslint ."
+  },
   "dependencies": {
     "@ferride/ferride-wasm": "workspace:*"
+  },
+  "devDependencies": {
+    "@ferride/eslint": "workspace:*",
+    "@ferride/tsconfig": "workspace:*",
+    "eslint": "catalog:",
+    "typescript": "catalog:"
   }
 }

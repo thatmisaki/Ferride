@@ -6,5 +6,7 @@ const initialised = init();
 self.addEventListener(
   "message",
   ({ data: { id, data: name } }: MessageEvent<Request>) =>
-    initialised.then(() => self.postMessage({ id, data: greet(name) })),
+    void initialised.then(() => {
+      self.postMessage({ id, data: greet(name) });
+    }),
 );

@@ -1,3 +1,3 @@
-export type Request = { id: number; data: string };
+export interface Request { id: number; data: string }
 
-export type Response = { id: number; data: string };
+export interface Response { id: number; data: string }

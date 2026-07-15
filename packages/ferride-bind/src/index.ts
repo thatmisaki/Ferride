@@ -3,15 +3,15 @@ import { Request, Response } from "./types";
 export default class Server {
   protected worker: Worker;
 
-  protected currentId: number = 0;
+  protected currentId = 0;
 
-  protected pendingRequests: Map<
+  protected pendingRequests = new Map<
     number,
     {
       resolve: (value: string | PromiseLike<string>) => void;
-      reject: (reason?: any) => void;
+      reject: (reason?: unknown) => void;
     }
-  > = new Map();
+  >();
 
   public constructor() {
     this.worker = new Worker(new URL("worker.ts", import.meta.url), {
