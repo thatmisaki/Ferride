@@ -1,0 +1,15 @@
+{
+  "$schema": "https://turborepo.dev/schema.json",
+  "extends": ["//"],
+  "tasks": {
+    // Build Tasks
+    "build:linux": {
+      "dependsOn": ["$TURBO_EXTENDS$", "@ferride/ferride-web#build"],
+      "outputs": ["$TURBO_ROOT$/target/**/*.{deb,rpm,AppImage}"],
+    },
+    "build:win64": {
+      "dependsOn": ["$TURBO_EXTENDS$", "@ferride/ferride-web#build"],
+      "outputs": ["$TURBO_ROOT$/target/**/*.exe"],
+    },
+  },
+}

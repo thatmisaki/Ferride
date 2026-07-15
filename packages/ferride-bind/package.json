@@ -6,7 +6,9 @@
     ".": "./src/index.ts"
   },
   "scripts": {
-    "lint": "eslint ."
+    "check:lint": "eslint .",
+    "check:types": "tsc",
+    "fix:lint": "eslint --fix ."
   },
   "dependencies": {
     "@ferride/ferride-wasm": "workspace:*"

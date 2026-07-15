@@ -4,9 +4,9 @@
   "version": "0.1.0",
   "identifier": "com.misaki.ferride",
   "build": {
-    "beforeDevCommand": "pnpm dev",
+    "beforeDevCommand": "",
     "devUrl": "http://localhost:1420",
-    "beforeBuildCommand": "pnpm build",
+    "beforeBuildCommand": "",
     "frontendDist": "../dist"
   },
   "app": {

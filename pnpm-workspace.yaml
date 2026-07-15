@@ -4,6 +4,7 @@ allowBuilds:
 packages:
   # Applications
   - "apps/ferride"
+  - "apps/ferride/src-tauri"
 
   # Internal packages
   - "packages/ferride-bind"

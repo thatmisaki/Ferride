@@ -23,6 +23,9 @@ dist-ssr
 *.sln
 *.sw?
 
+# Turborepo cache
+.turbo
+
 # Cargo builds
 **/target
 

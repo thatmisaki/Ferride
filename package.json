@@ -4,22 +4,27 @@
   "version": "0.1.0",
   "type": "module",
   "scripts": {
-    "dev": "pnpm --filter @ferride/ferride dev",
-    "build": "pnpm --filter @ferride/ferride build",
-    "build:wasm": "pnpm --filter @ferride/ferride-wasm build",
+    "build": "turbo run build",
+    "build:web": "turbo run build:web",
+    "build:linux": "turbo run build:linux",
+    "build:win64": "turbo run build:win64",
+    "check": "turbo run check",
+    "check:format": "prettier --check .",
+    "check:lint": "turbo run check:lint",
+    "check:types": "turbo run check:types",
     "check:unused": "knip",
-    "format": "prettier --write .",
-    "format:check": "prettier --check .",
-    "lint": "pnpm -r lint",
-    "preview": "pnpm --filter @ferride/ferride preview",
-    "tauri": "pnpm --filter @ferride/ferride tauri"
+    "dev": "turbo run dev",
+    "fix": "turbo run fix",
+    "fix:format": "prettier --write .",
+    "fix:lint": "turbo run fix:lint"
   },
   "devDependencies": {
     "knip": "^6.24.0",
-    "prettier": "^3.9.4",
+    "prettier": "^3.9.5",
     "prettier-plugin-classnames": "^0.10.4",
     "prettier-plugin-merge": "^0.10.1",
-    "prettier-plugin-tailwindcss": "^0.8.0"
+    "prettier-plugin-tailwindcss": "^0.8.0",
+    "turbo": "^2.10.5"
   },
   "devEngines": {
     "packageManager": {

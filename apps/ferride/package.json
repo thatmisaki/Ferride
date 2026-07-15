@@ -1,14 +1,14 @@
 {
-  "name": "@ferride/ferride",
+  "name": "@ferride/ferride-web",
   "private": true,
   "version": "0.1.0",
   "type": "module",
   "scripts": {
+    "build:web": "vite build",
+    "check:lint": "eslint .",
+    "check:types": "tsc",
     "dev": "vite",
-    "build": "tsc && vite build",
-    "lint": "eslint .",
-    "preview": "vite preview",
-    "tauri": "tauri"
+    "fix:lint": "eslint --fix ."
   },
   "dependencies": {
     "@ferride/ferride-bind": "workspace:*",
@@ -20,7 +20,6 @@
     "@ferride/tailwindcss": "workspace:*",
     "@ferride/tsconfig": "workspace:*",
     "@tailwindcss/vite": "catalog:tailwindcss",
-    "@tauri-apps/cli": "catalog:tauri",
     "@types/react": "catalog:react",
     "@types/react-dom": "catalog:react",
     "@vitejs/plugin-react": "^4.6.0",

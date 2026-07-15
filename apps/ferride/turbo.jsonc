@@ -1,0 +1,10 @@
+{
+  "$schema": "https://turborepo.dev/schema.json",
+  "extends": ["//"],
+  "tasks": {
+    // Build Tasks
+    "build:web": {
+      "inputs": ["$TURBO_DEFAULT$", "!src-tauri/**"],
+    },
+  },
+}
