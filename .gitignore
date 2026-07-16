@@ -33,4 +33,5 @@ dist-ssr
 **/gen/schemas
 
 # Local workflow artifacts
+.actcache
 .artifacts

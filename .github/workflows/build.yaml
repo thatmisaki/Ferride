@@ -8,49 +8,49 @@ on:
 
 jobs:
   build:
-    runs-on: ${{ matrix.platform }}
-
-    strategy:
-      fail-fast: false
-
-      matrix:
-        include:
-          - name: linux
-            platform: ubuntu-24.04
-
-          - name: win64
-            platform: ubuntu-latest
+    runs-on: ubuntu-24.04
 
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      - name: Cache Turbo Outputs
+        uses: actions/cache@v6
+        with:
+          path: "**/.turbo"
+          key: ${{ runner.os }}-turbo-${{ github.sha }}
+          restore-keys: |
+            ${{ runner.os }}-turbo-
 
       - name: Install PNPM
         uses: pnpm/action-setup@v6
         with:
           version: 11.10
+          cache: true
 
       - name: Install Node
         uses: actions/setup-node@v6
 
-      - name: Install Rust Toolchain [Linux]
+      - name: Install Rust Toolchain
         uses: dtolnay/rust-toolchain@stable
-        if: matrix.name == 'linux'
-
-      - name: Install Rust Toolchain [Win64]
-        uses: dtolnay/rust-toolchain@stable
-        if: matrix.name == 'win64'
         with:
-          targets: x86_64-pc-windows-msvc
+          targets: x86_64-pc-windows-msvc, wasm32-unknown-unknown
+
+      - name: Cache Rust Outputs
+        uses: Swatinem/rust-cache@v2
+
+      - name: Install Wasm-Pack
+        uses: jetli/wasm-pack-action@v0.4.0
 
       - name: Install Web Dependencies
-        run: |
-          pnpm ci
+        run: pnpm ci
 
       - name: Install Tauri Dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y \
+          sudo apt-get install -y --no-install-recommends \
           libwebkit2gtk-4.1-0=2.44.0-2 \
           libwebkit2gtk-4.1-dev=2.44.0-2 \
           libjavascriptcoregtk-4.1-0=2.44.0-2 \
@@ -60,49 +60,27 @@ jobs:
           libappindicator3-dev \
           librsvg2-dev \
           patchelf \
-          xdg-utils
-
-      - name: Install Tauri Dependencies [Win64]
-        if: matrix.name == 'win64'
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y \
+          xdg-utils \
           clang \
           nsis \
           llvm \
           lld
           cargo install --locked cargo-xwin
 
-      - name: Build Tauri App [Linux]
-        uses: tauri-apps/tauri-action@v0
-        if: matrix.name == 'linux'
-        with:
-          projectPath: ./apps/ferride/src-tauri
+      - name: Build Tauri App
+        run: pnpm build --affected
 
-      - name: Build Tauri App [Win64]
-        uses: tauri-apps/tauri-action@v0
-        if: matrix.name == 'win64'
-        with:
-          projectPath: ./apps/ferride/src-tauri
-          args: --runner cargo-xwin --target x86_64-pc-windows-msvc
-
-      - name: Move Build Artifacts [Linux]
-        if: matrix.name == 'linux'
+      - name: Move Build Artifacts
         run: |
           mkdir -p ./build
           mv ./target/release/bundle/appimage/*.AppImage ./build
           mv ./target/release/bundle/deb/*.deb ./build
           mv ./target/release/bundle/rpm/*.rpm ./build
-
-      - name: Move Build Artifacts [Win64]
-        if: matrix.name == 'win64'
-        run: |
-          mkdir -p ./build
           mv ./target/x86_64-pc-windows-msvc/release/bundle/nsis/*.exe ./build
           mv ./target/x86_64-pc-windows-msvc/release/*.exe ./build
 
       - name: Upload Build Artifacts
-        uses: actions/upload-artifact@v7
+        uses: actions/upload-artifact@v5
         with:
-          name: tauri-artifacts-${{ matrix.name }}
+          name: tauri-artifacts
           path: ./build
