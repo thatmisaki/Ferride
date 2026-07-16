@@ -13,12 +13,13 @@
     "check:lint": "turbo run check:lint",
     "check:types": "turbo run check:types",
     "check:unused": "knip",
-    "dev": "turbo run dev",
     "fix": "turbo run fix",
     "fix:format": "prettier --write .",
-    "fix:lint": "turbo run fix:lint"
+    "fix:lint": "turbo run fix:lint",
+    "prepare": "husky"
   },
   "devDependencies": {
+    "husky": "^9.1.7",
     "knip": "^6.24.0",
     "prettier": "^3.9.5",
     "prettier-plugin-classnames": "^0.10.4",

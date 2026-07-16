@@ -1,0 +1,5 @@
+# Run Fix Task for Changed Packages
+turbo fix --affected
+
+# Update Staging Area
+git update-index --again
