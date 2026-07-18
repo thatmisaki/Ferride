@@ -17,6 +17,13 @@
       "dependsOn": ["^build:win64"],
     },
 
+    // Dev Tasks
+    "dev:web": {
+      "dependsOn": ["^build:web"],
+      "cache": false,
+      "persistent": true,
+    },
+
     // Code Quality Check Tasks
     "check": {
       "dependsOn": [

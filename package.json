@@ -13,6 +13,7 @@
     "check:lint": "turbo run check:lint",
     "check:types": "turbo run check:types",
     "check:unused": "knip",
+    "dev:web": "turbo run dev:web",
     "fix": "turbo run fix",
     "fix:format": "prettier --write .",
     "fix:lint": "turbo run fix:lint",

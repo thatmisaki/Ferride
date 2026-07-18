@@ -9,6 +9,7 @@ packages:
   # Internal packages
   - "packages/ferride-bind"
   - "packages/ferride-wasm"
+  - "packages/logging"
 
   # Internal configuration packages
   - "packages/eslint"

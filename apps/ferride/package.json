@@ -7,7 +7,7 @@
     "build:web": "vite build",
     "check:lint": "eslint .",
     "check:types": "tsc",
-    "dev": "vite",
+    "dev:web": "vite",
     "fix:lint": "eslint --fix ."
   },
   "dependencies": {
