@@ -1,7 +1,7 @@
 import { Menubar } from "radix-ui";
 
-/// The root menu bar navigation widget.
-export default function Menu() {
+/// The root header menu bar navigation widget.
+export default function HeaderMenu() {
   return (
     <Menubar.Root asChild>
       <nav className="mr-auto flex flex-row items-center justify-start gap-1">
@@ -13,12 +13,14 @@ export default function Menu() {
                 type="button"
                 className="group cursor-pointer rounded-sm px-2 py-1
                   leading-none transition-colors outline-none
-                  data-highlighted:bg-editor-800 dark:hover:bg-editor-800"
+                  data-highlighted:bg-editor-800 dark:hover:bg-editor-800
+                  dark:data-[state=open]:bg-editor-800"
               >
                 <span
                   className="font-editor text-base font-normal transition-colors
                     dark:text-text-200 dark:group-hover:text-text-100
-                    dark:group-data-highlighted:text-text-100"
+                    dark:group-data-highlighted:text-text-100
+                    dark:group-data-[state=open]:text-text-100"
                 >
                   {item}
                 </span>
