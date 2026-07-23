@@ -11,7 +11,7 @@
     "fix:lint": "eslint --fix ."
   },
   "dependencies": {
-    "@ferride/ferride-bind": "workspace:*",
+    "radix-ui": "catalog:",
     "react": "catalog:react",
     "react-dom": "catalog:react"
   },

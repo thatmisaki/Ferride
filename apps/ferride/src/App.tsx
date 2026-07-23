@@ -1,68 +1,14 @@
-import Server from "@ferride/ferride-bind";
-import { useEffect, useRef, useState } from "react";
-import reactLogo from "./assets/react.svg";
+import Header from "./components/Header";
 
-import "./App.css";
-
+/// The root application window.
 export default function App() {
-  const [greetMsg, setGreetMsg] = useState("");
-  const [name, setName] = useState("");
-
-  // Emulation server worker thread stub.
-  const server = useRef<Server>(null);
-
-  useEffect(() => {
-    // Initialise the emulation server worker thread.
-    server.current = new Server();
-    // Clean up by terminating worker thread.
-    return () => server.current?.dispose();
-  }, []);
-
-  async function greet() {
-    // Learn more about Tauri commands at https://tauri.app/develop/calling-rust/
-    // setGreetMsg(await invoke("greet", { name }));
-
-    if (server.current === null) {
-      return;
-    }
-    // Make asynchronous emulation server request.
-    setGreetMsg(await server.current.greet(name));
-  }
-
   return (
-    <main className="container">
-      <h1>Welcome to Tauri + React</h1>
-
-      <div className="row">
-        <a href="https://vite.dev" target="_blank">
-          <img src="/vite.svg" className="logo vite" alt="Vite logo" />
-        </a>
-        <a href="https://tauri.app" target="_blank">
-          <img src="/tauri.svg" className="logo tauri" alt="Tauri logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <p>Click on the Tauri, Vite, and React logos to learn more.</p>
-
-      <form
-        className="row"
-        onSubmit={(e) => {
-          e.preventDefault();
-          void greet();
-        }}
-      >
-        <input
-          id="greet-input"
-          onChange={(e) => {
-            setName(e.currentTarget.value);
-          }}
-          placeholder="Enter a name..."
-        />
-        <button type="submit">Greet</button>
-      </form>
-      <p>{greetMsg}</p>
-    </main>
+    <div
+      data-theme="dark"
+      className="flex h-screen flex-col gap-1 p-1 dark:bg-editor-900"
+    >
+      {/* Header Container */}
+      <Header />
+    </div>
   );
 }
